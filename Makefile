@@ -1,5 +1,8 @@
-install:
+install-dev:
 	npm i
+
+install-ci:
+	npm ci
 
 start-dev:
 	npx nodemon src/main.js

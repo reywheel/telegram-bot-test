@@ -8,4 +8,5 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
+      - run: make install-ci
       - run: make run-eslint
