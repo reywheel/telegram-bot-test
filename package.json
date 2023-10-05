@@ -5,7 +5,12 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install-dev": "npm i",
+    "install-ci": "npm ci",
+    "install-prod": "npm i --production",
+    "run-eslint": "npx eslint src",
+    "start-dev": "npx nodemon src/main.js",
+    "start-prod": "node src/main.js"
   },
   "keywords": [],
   "author": "",
