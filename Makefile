@@ -6,3 +6,6 @@ start-dev:
 
 start-prod:
 	node src/main.js
+
+run-eslint:
+	npx eslint src
