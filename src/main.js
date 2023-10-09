@@ -7,7 +7,7 @@ bot.start((ctx) => ctx.reply('Welcome'));
 
 bot.hears('hello', async (ctx) => {
   console.log(ctx.chat);
-  await ctx.reply('Hello, world from server!');
+  await ctx.reply('Hello, world from v0.3.0!');
 });
 
 bot.launch();
