@@ -46,4 +46,4 @@ jobs:
             cd ${{ secrets.PATH_TO_APP }}
             docker compose down
             docker system prune -af
-            docker compose up -d -e APP_VERSION=${{github.ref_name}}
+            APP_VERSION=${{github.ref_name}} docker compose up -d
