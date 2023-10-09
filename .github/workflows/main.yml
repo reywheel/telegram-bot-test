@@ -28,3 +28,15 @@ jobs:
         with:
           push: true
           tags: reywheel/telegram-bot:latest
+
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: whoami
