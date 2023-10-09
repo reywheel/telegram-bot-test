@@ -29,7 +29,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: reywheel/telegram-bot:latest
+          tags: reywheel/telegram-bot:${{github.ref_name}}
 
   deploy:
     name: deploy
@@ -46,4 +46,4 @@ jobs:
             cd ${{ secrets.PATH_TO_APP }}
             docker compose down
             docker system prune -af
-            docker compose up -d
+            docker compose up -d APP_VERSION=${{github.ref_name}}

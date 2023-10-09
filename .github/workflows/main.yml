@@ -1,5 +1,8 @@
 name: main-flow
-on: [push]
+on:
+  push:
+    branches:
+      - '*'
 jobs:
   linting:
     name: linting
