@@ -1,7 +1,8 @@
 name: main-flow
 on: [push]
 jobs:
-  linging:
+  linting:
+    name: linting
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -12,7 +13,9 @@ jobs:
       - run: npm run run-eslint
 
   build-and-push-docker-image:
+    name: build and push docker image to docker-hub
     runs-on: ubuntu-latest
+    needs: linting
     steps:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -32,6 +35,7 @@ jobs:
   deploy:
     name: deploy
     runs-on: ubuntu-latest
+    needs: build-and-push-docker-image
     steps:
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@v1.0.0
